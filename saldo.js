@@ -44,7 +44,7 @@ class conta {
         }
         //bloco 2
 
-        if (this.saldo >= 0 && saque > this.saldo) {
+        if (saque > this.saldo) {
            
                 let res = document.getElementById("msg-inicial");
                 res.style.display = "block"
