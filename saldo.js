@@ -45,7 +45,7 @@ class conta {
         }
         //bloco 2
 
-        if (this.saldo <= 0 && this.saldo < saque ) {
+        if (this.saldo <= 0 && saque > this.saldo ) {
            
                 let res = document.getElementById("msg-inicial");
                 res.style.display = "block"
@@ -56,21 +56,6 @@ class conta {
                 console.log("bloco 1")
                 console.log(this.saldo)
                 console.log(saque)
-                
-            //bloco 4
-        } else if( saque > this.saldo){
-        
-             let res = document.getElementById("msg-inicial");
-                res.style.display = "block"
-                let resp = document.getElementById("msg-inicial-2");
-                resp.style.display = "none";
-                console.log("voce nao possui saldo!")
-                this.limpar();
-                console.log("bloco 2")
-                console.log(this.saldo)
-                console.log(saque)
-            
-       
              
         } else {
 
@@ -79,7 +64,7 @@ class conta {
             this.limpar();
             document.getElementById("saldo-atual").value = this.saldo;
             console.log("bloco 4")
-                console.log(this.saldo)
+            console.log(this.saldo)
         }
      
          
