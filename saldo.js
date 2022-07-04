@@ -45,16 +45,17 @@ class conta {
         }
         //bloco 2
 
-        if (saque < this.saldo) {
+        if (this.saldo < saque ) {
            
-            
-            let resultado = `${this.saldo} - ${saque}`;
-            this.saldo = eval(resultado).toFixed(2);
-            this.limpar();
-            document.getElementById("saldo-atual").value = this.saldo;
-            console.log("bloco 4")
+                let res = document.getElementById("msg-inicial");
+                res.style.display = "block"
+                let resp = document.getElementById("msg-inicial-2");
+                resp.style.display = "none";
+                console.log("voce nao possui saldo!")
+                this.limpar();
+                console.log("bloco 1")
                 console.log(this.saldo)
-       
+                console.log(saque)
                 
             //bloco 4
         } else if( saque > this.saldo){
@@ -71,6 +72,14 @@ class conta {
             
        
              
+        } else {
+
+            let resultado = `${this.saldo} - ${saque}`;
+            this.saldo = eval(resultado).toFixed(2);
+            this.limpar();
+            document.getElementById("saldo-atual").value = this.saldo;
+            console.log("bloco 4")
+                console.log(this.saldo)
         }
      
          
