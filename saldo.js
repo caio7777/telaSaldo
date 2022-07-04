@@ -44,7 +44,7 @@ class conta {
         }
         //bloco 2
 
-        if (this.saldo < saque) {
+        if (this.saldo <= saque && saque > this.saldo) {
            
                 let res = document.getElementById("msg-inicial");
                 res.style.display = "block"
@@ -52,7 +52,7 @@ class conta {
                 resp.style.display = "none";
                 console.log("voce nao possui saldo!")
                 this.limpar();
-                console.log("bloco 2")
+                console.log("bloco 1")
                 console.log(this.saldo)
                 console.log(saque)
                 
