@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../conta_banco/saldo.js"></script>
+    <style>
+      .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        height: 520px;
+        border: 3px solid whitesmoke;
+        padding-left: 25px;
+        padding-right: 25px;
+        background-color: rgb(194, 181, 147);
+        border-radius: 10px;
+      }
+      body {
+        height: 106vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        background-image: linear-gradient(
+          45deg,
+          rgb(247, 186, 17),
+          rgb(74, 64, 36),
+          rgb(74, 54, 10)
+        );
+      }
+
+      .saldo-desc {
+        display: flex;
+        justify-content: center;
+        font-size: 5vh;
+        margin-bottom: 5px;
+        margin-top: 0px;
+      }
+
+      .tela-saldo {
+        display: flex;
+        margin-bottom: 5px;
+        width: 86.5%;
+        height: max-content;
+        border: 2px solid whitesmoke;
+        padding: 13px;
+        font-size: 30px;
+        border-radius: 5px;
+      }
+
+      .deposito-input {
+        display: flex;
+        margin-bottom: 5px;
+        width: 84.8%;
+        height: max-content;
+        border: 2px solid whitesmoke;
+        padding: 16px;
+        font-size: 30px;
+        border-radius: 5px;
+      }
+
+      .saque-input {
+        display: flex;
+        margin-bottom: 5px;
+        width: 85%;
+        border: 2px solid whitesmoke;
+        padding: 15px;
+        font-size: 30px;
+        border-radius: 5px;
+      }
+      #saldo-atual,
+      #insert-deposito,
+      #retirar {
+        width: 90%;
+      }
+      .container:hover {
+        box-shadow: 5px 5px 15px 5px whitesmoke;
+      }
+      .label-input {
+        font-size: 20px;
+      }
+      button {
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50%;
+      }
+      button:hover {
+        background-color: rgb(176, 169, 151);
+        color: whitesmoke;
+      }
+      input {
+        border-radius: 5px;
+      }
+      #saldo-atual {
+        color: black;
+        font-size: 20px;
+        background-color: white;
+        border: 2px solid black;
+      }
+      #cifra,
+      #cifra2,
+      #cifra3 {
+        padding-right: 5px;
+      }
+      .container-btn {
+        display: flex;
+        justify-content: center;
+      }
+      #btn-saldo {
+        width: min-content;
+        padding-top: 4px;
+      }
+
+      #btn-saldo-2 {
+        display: none;
+        width: min-content;
+      }
+
+      #msg-inicial {
+        display: none;
+        color: red;
+      }
+
+      #msg-inicial-2 {
+        display: none;
+        color: red;
+      }
+      .user {
+        margin: 0 auto;
+        padding: 0;
+      }
+      .user-cont {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+      }
+
+      @media screen and (min-width: 350px) {
+        .container {
+          position: relative;
+          top: 110px;
+        }
+      }
+      .barra-nav {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+      }
+      .nav1,
+      .nav2,
+      .nav3,
+      .nav4 {
+        width: 50px;
+        height: 50;
+        border: 2px solid black;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        class="user"
+        src="../conta_banco/usuario-masculino.png"
+        alt=""
+        width="50px"
+      />
+      <div class="user-cont">
+        <h2>Olá! Caio B A Almeida</h2>
+      </div>
+      <label for="" class="saldo-desc">saldo</label>
+      <div class="tela-saldo">
+        <div>
+          <label for="" id="cifra">R$</label>
+        </div>
+        <input disabled type="text" class="saldo" id="saldo-atual" />
+        <button onclick="conta_caio.esconder()" id="btn-saldo-2">
+          <img src="../conta_banco/olhofechado.png" alt="" width="20px" />
+        </button>
+        <button onclick="conta_caio.getSaldo()" id="btn-saldo">
+          <img src="../conta_banco/olho.png" alt="" width="20px" />
+        </button>
+        <label for="btn-saldo-2"> </label>
+        <label for="btn-saldo"></label>
+      </div>
+      <label for="" class="label-input">insira o valor de deposito</label>
+      <div class="deposito-input">
+        <div>
+          <label for="" id="cifra2">R$</label>
+        </div>
+        <input type="number" id="insert-deposito" />
+      </div>
+      <div class="container-btn2">
+        <button onclick="conta_caio.deposito()" id="btn-deposito" type="submit">
+          deposito
+        </button>
+      </div>
+      <label for="" class="label-input">insira o valor do saque</label>
+      <div class="saque-input">
+        <div>
+          <label for="" id="cifra3">R$</label>
+        </div>
+        <input type="number" id="retirar" />
+      </div>
+      <div class="container-btn3">
+        <button onclick="conta_caio.saque()" type="submit" id="btn-saque">
+          saque
+        </button>
+        <div id="msg-inicial">
+          voce não possui saldo para completar a operaçao!
+        </div>
+        <div id="msg-inicial-2">saldo insuficiente!</div>
+      </div>
+    </div>
+  </body>
+</html>
